@@ -1,3 +1,2 @@
 # cpp-paradise-resort
-#Paradise Resort Management(C++)
-
+Paradise Resort Management

@@ -1,2 +1,5 @@
 # cpp-paradise-resort
-My C++ Project
+Paradise Resort (C++)
+
+https://www.freepik.com/free-photos-vectors/travel
+

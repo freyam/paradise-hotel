@@ -1,4 +1,4 @@
-#include <conio.h>
+#include "conio.h"
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -471,7 +471,7 @@ void searchbyname(guest g[50], int n) {
     cin >> nm;
 
     for (int i = 0; i < n; i++)
-        if (strcmpi(g[i].nm, nm) == 0) {
+        if (strcmp(g[i].nm, nm) == 0) {
             found++;
             cout << endl
                  << endl;
@@ -496,7 +496,7 @@ void searchbycountry(guest g[50], int n) {
     cin >> cntry;
 
     for (int i = 0; i < n; i++)
-        if (strcmpi(g[i].cntry, cntry) == 0) {
+        if (strcmp(g[i].cntry, cntry) == 0) {
             found++;
             cout << endl
                  << endl;
@@ -520,7 +520,7 @@ void searchbyroomtype(guest g[50], int n) {
     cin >> rmtyp;
 
     for (int i = 0; i < n; i++)
-        if (strcmpi(g[i].rmtyp, rmtyp) == 0) {
+        if (strcmp(g[i].rmtyp, rmtyp) == 0) {
             found++;
             cout << endl
                  << endl;
@@ -589,7 +589,7 @@ void sortbyname(guest g[50], int n) {
 
     for (int i = 0; i < n; i++)
         for (int j = i + 1; j < n; j++)
-            if (strcmpi(g[i].nm, g[j].nm) > 0) {
+            if (strcmp(g[i].nm, g[j].nm) > 0) {
                 strcpy(temp, g[i].nm);
                 strcpy(g[i].nm, g[j].nm);
                 strcpy(g[j].nm, temp);
@@ -625,7 +625,7 @@ void sortbycountry(guest g[50], int n) {
 
     for (int i = 0; i < n; i++)
         for (int j = i + 1; j < n; j++)
-            if (strcmpi(g[i].cntry, g[j].cntry) > 0) {
+            if (strcmp(g[i].cntry, g[j].cntry) > 0) {
                 strcpy(temp, g[i].nm);
                 strcpy(g[i].nm, g[j].nm);
                 strcpy(g[j].nm, temp);
@@ -738,7 +738,7 @@ void countbycountry(guest g[50], int n) {
     cin >> cntry;
 
     for (int i = 0; i < n; i++)
-        if (strcmpi(g[i].cntry, cntry) == 0)
+        if (strcmp(g[i].cntry, cntry) == 0)
             count++;
     cout << cntry << ": " << count << endl;
 }
@@ -752,7 +752,7 @@ void countbyroomtype(guest g[50], int n) {
     cin >> rmtyp;
 
     for (int i = 0; i < n; i++)
-        if (strcmpi(g[i].rmtyp, rmtyp) == 0)
+        if (strcmp(g[i].rmtyp, rmtyp) == 0)
             count++;
     cout << rmtyp << ": " << count << endl;
 }
@@ -807,27 +807,27 @@ void Bills(guest g[50], int n) {
     cin >> name;
 
     for (int i = 0; i < n; i++) {
-        if (strcmpi(g[i].nm, name) == 0) {
-            if (strcmpi(g[i].Bills, "YES") == 0) {
+        if (strcmp(g[i].nm, name) == 0) {
+            if (strcmp(g[i].Bills, "YES") == 0) {
                 cout << "You have already paid your Bills! Enjoy your Stay!";
                 getch();
                 HTLmenu();
             }
 
-            if (strcmpi(g[i].Bills, "NO") == 0) {
+            if (strcmp(g[i].Bills, "NO") == 0) {
                 cout << "\nEnter the Number of Days you are Planning to Stay Here: ";
                 cin >> days;
-                if (strcmpi(g[i].rmtyp, "Single") == 0)
+                if (strcmp(g[i].rmtyp, "Single") == 0)
                     net = 100 * days;
-                else if (strcmpi(g[i].rmtyp, "Double") == 0)
+                else if (strcmp(g[i].rmtyp, "Double") == 0)
                     net = 200 * days;
-                else if (strcmpi(g[i].rmtyp, "Queen") == 0)
+                else if (strcmp(g[i].rmtyp, "Queen") == 0)
                     net = 400 * days;
-                else if (strcmpi(g[i].rmtyp, "King") == 0)
+                else if (strcmp(g[i].rmtyp, "King") == 0)
                     net = 500 * days;
-                else if (strcmpi(g[i].rmtyp, "Deluxe") == 0)
+                else if (strcmp(g[i].rmtyp, "Deluxe") == 0)
                     net = 750 * days;
-                else if (strcmpi(g[i].rmtyp, "Master") == 0)
+                else if (strcmp(g[i].rmtyp, "Master") == 0)
                     net = 1000 * days;
 
                 cout << endl
@@ -847,7 +847,7 @@ void Bills(guest g[50], int n) {
                 cout << "\nDo You Wish to Pay the Bill? (YES/NO): ";
                 cin >> response;
 
-                if (strcmpi(response, "YES") == 0) {
+                if (strcmp(response, "YES") == 0) {
                     g[i].eWllt -= net;
                     strcpy(g[i].Bills, "YES");
                     cout << "SUCCESSFULLY PAID";
@@ -864,17 +864,17 @@ void report(guest g[50], int n) {
     int sing = 0, dbl = 0, quen = 0, kng = 0, delx = 0, mstr = 0;
 
     for (int i = 0; i < n; i++) {
-        if (strcmpi(g[i].rmtyp, "SINGLE") == 0)
+        if (strcmp(g[i].rmtyp, "SINGLE") == 0)
             sing++;
-        if (strcmpi(g[i].rmtyp, "DOUBLE") == 0)
+        if (strcmp(g[i].rmtyp, "DOUBLE") == 0)
             dbl++;
-        if (strcmpi(g[i].rmtyp, "QUEEN") == 0)
+        if (strcmp(g[i].rmtyp, "QUEEN") == 0)
             quen++;
-        if (strcmpi(g[i].rmtyp, "KING") == 0)
+        if (strcmp(g[i].rmtyp, "KING") == 0)
             kng++;
-        if (strcmpi(g[i].rmtyp, "DELUXE") == 0)
+        if (strcmp(g[i].rmtyp, "DELUXE") == 0)
             delx++;
-        if (strcmpi(g[i].rmtyp, "MASTER") == 0)
+        if (strcmp(g[i].rmtyp, "MASTER") == 0)
             mstr++;
     }
     system("cls");
@@ -1071,7 +1071,7 @@ void orderfood(guest g[50], int n) {
     getch();
 
     for (int i = 0; i < n; i++)
-        if (strcmpi(g[i].nm, name) == 0) {
+        if (strcmp(g[i].nm, name) == 0) {
             cout << endl
                  << endl;
             cout << "             #####################################################################" << endl;
@@ -1089,7 +1089,7 @@ void orderfood(guest g[50], int n) {
             cout << "\nDo You Wish to Pay the Bill? (YES): ";
             cin >> response;
 
-            if (strcmpi(response, "YES") == 0) {
+            if (strcmp(response, "YES") == 0) {
                 g[i].eWllt -= bill;
                 cout << "SUCCESSFULLY PAID";
                 getch();
